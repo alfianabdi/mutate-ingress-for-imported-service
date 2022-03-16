@@ -1,0 +1,19 @@
+{
+  "CN": "nginx-ingress.svc.cluster.local",
+  "hosts": [
+    "mutate-ingress-for-imported-service",
+    "mutate-ingress-for-imported-service.nginx-ingress",
+    "mutate-ingress-for-imported-service.nginx-ingress.svc",
+    "mutate-ingress-for-imported-service.nginx-ingress.svc.cluster.local"
+  ],
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "SG",
+      "L": "Singapore"
+    }
+  ]
+}

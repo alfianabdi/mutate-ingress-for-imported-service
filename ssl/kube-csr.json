@@ -1,0 +1,22 @@
+{
+  "apiVersion": "cert-manager.io/v1",
+  "kind": "CertificateRequest",
+  "metadata": {
+    "name": "mutate-ingress-for-imported-service"
+  },
+  "spec": {
+    "isCA": false,
+    "issuerRef": {
+      "group": "cert-manager.io",
+      "name": "ca-issuer",
+      "kind": "ClusterIssuer"
+    },
+    "duration": "8760h",
+    "request": "",
+    "usages": [
+      "server auth",
+      "digital signature",
+      "signing"
+    ]
+  }
+}
