@@ -45,7 +45,7 @@ func main() {
 	wait := time.Second * 10
 	r := mux.NewRouter()
 	r.HandleFunc("/", rootHandler)
-	r.HandleFunc("/mutate-virtual-server", mutateVirtualServerHandler)
+	r.HandleFunc("/virtual-server", mutateVirtualServerHandler)
 
 	s := &http.Server{
 		Addr:           ":8443",

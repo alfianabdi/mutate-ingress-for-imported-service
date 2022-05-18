@@ -46,12 +46,15 @@ func MutateVirtualServer(body []byte) ([]byte, error) {
 		p := []map[string]string{}
 		for i := range vserver.Spec.Upstreams {
 			service := vserver.Spec.Upstreams[i].Service
-			patch := map[string]string{
-				"op":    "replace",
-				"path":  fmt.Sprintf("/spec/upstreams/%d/service", i),
-				"value": fmt.Sprintf(DerivedName(namespace, service)),
+			match := MatchDerivedName(service)
+			if !match {
+				patch := map[string]string{
+					"op":    "replace",
+					"path":  fmt.Sprintf("/spec/upstreams/%d/service", i),
+					"value": fmt.Sprintf(DerivedName(namespace, service)),
+				}
+				p = append(p, patch)
 			}
-			p = append(p, patch)
 		}
 
 		// Marshal the patch to JSON
